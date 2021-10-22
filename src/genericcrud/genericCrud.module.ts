@@ -9,7 +9,7 @@ import { GenericCrudService } from "./genericCrud.service";
 
 @Module({})
 export class GenericCrudModule {
-  public forRoot<T>(entity: Type<T>): DynamicModule {
+  public static forRoot<T>(entity: Type<T>): DynamicModule {
     const typeOrmFeatureModule = TypeOrmModule.forFeature([entity]);
     const typeOrmFeatureModuleProviders = typeOrmFeatureModule.providers!;
     return {
