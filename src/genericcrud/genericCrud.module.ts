@@ -6,10 +6,14 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 
 import { GenericCrudController } from "./genericCrud.controller";
 import { GenericCrudService } from "./genericCrud.service";
+import { CrudOptions } from "@nestjsx/crud/lib/interfaces";
 
 @Module({})
 export class GenericCrudModule {
-  public static forFeature<T>(entity: Type<T>): DynamicModule {
+  public static forFeature<T>(
+    entity: Type<T>,
+    additionalCrudOptions: Partial<CrudOptions>,
+  ): DynamicModule {
     const typeOrmFeatureModule = TypeOrmModule.forFeature([entity]);
     const typeOrmFeatureModuleProviders = typeOrmFeatureModule.providers!;
     return {
@@ -26,7 +30,7 @@ export class GenericCrudModule {
           ],
         },
       ],
-      controllers: [GenericCrudController<T>(entity)],
+      controllers: [GenericCrudController<T>(entity, additionalCrudOptions)],
     };
   }
 }
