@@ -25,7 +25,17 @@ export class AuthenticationModule {
         }),
       ],
       controllers: [AuthenticationController],
-      providers: [AuthenticationService, JwtStrategy, JwtAuthGuard],
+      providers: [
+        AuthenticationService,
+        JwtStrategy,
+        JwtAuthGuard,
+        {
+          provide: "JWT_SECRET_CONFIG",
+          useFactory(): JwtSecretConfigInterface {
+            return jwtSecretConfig;
+          },
+        },
+      ],
       exports: [JwtAuthGuard],
     };
   }
