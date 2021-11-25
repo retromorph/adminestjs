@@ -1,3 +1,3 @@
 export class JwtSecretConfigInterface {
-  secret: string;
+  public secret: string;
 }
