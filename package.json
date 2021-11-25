@@ -1,6 +1,6 @@
 {
   "name": "adminestjs",
-  "version": "0.0.2-alpha",
+  "version": "0.0.3-alpha",
   "description": "",
   "main": "dist/adminestjs.module.js",
   "types": "dist/adminestjs.module.d.ts",
