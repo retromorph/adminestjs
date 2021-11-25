@@ -26,7 +26,7 @@ export class GenericCrudModule {
           ],
         },
       ],
-      controllers: [GenericCrudController<T>()],
+      controllers: [GenericCrudController<T>(entity)],
     };
   }
 }
